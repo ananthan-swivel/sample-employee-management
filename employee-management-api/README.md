@@ -35,6 +35,11 @@
 ```bash
 $ yarn
 ```
+## For API Swagger
+```bash
+localhost:<port>/api
+```
+
 
 ## Running the app
 
