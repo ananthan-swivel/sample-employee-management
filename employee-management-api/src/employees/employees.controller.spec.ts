@@ -2,15 +2,32 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { EmployeesController } from './employees.controller';
 import { EmployeesService } from './employees.service';
 import { getQuery } from '../../dist/interface/query.interface';
+import { EmployeeCreateDto } from 'src/dto';
+import { getRepositoryToken } from '@nestjs/typeorm';
+import { EmployeeEntity } from './employee.entity';
 
 describe('EmployeesController', () => {
   let employeeController: EmployeesController;
   let employeeService: EmployeesService;
+  const mockEmployeesRepository = {
+    save: jest.fn().mockImplementation((dto: EmployeeCreateDto) => {
+      return Promise.resolve({
+        EmployeeID: Math.ceil(Math.random() * 10),
+        ...dto,
+      });
+    }),
+  };
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [EmployeesController],
-      providers: [EmployeesService],
+      providers: [
+        EmployeesService,
+        {
+          provide: getRepositoryToken(EmployeeEntity),
+          useValue: mockEmployeesRepository,
+        },
+      ],
     }).compile();
 
     employeeService = module.get<EmployeesService>(EmployeesService);
