@@ -1,0 +1,153 @@
+{
+	"info": {
+		"_postman_id": "7aee7a66-1955-4bc9-b977-b01c40ded209",
+		"name": "EMS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get All Employee",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/employees?sort_by=first_name&sort_dir=desc&page=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"employees"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "94771277618",
+							"disabled": true
+						},
+						{
+							"key": "sort_by",
+							"value": "first_name"
+						},
+						{
+							"key": "sort_dir",
+							"value": "desc"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get One Employee",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/employees/634f7ef880f6c360ce879011",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"employees",
+						"634f7ef880f6c360ce879011"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Employee",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"first_name\":\"sdfdsfsd\",\r\n    \"last_name\":\"sdfdsfsd\",\r\n    \"email\":\"sdfdsfsd@gmail.com\",\r\n    \"number\":\"0767219211\",\r\n    \"gender\":\"M\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/employees",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Employee",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"first_name\":\"update\",\r\n    \"last_name\":\"update\",\r\n    \"email\":\"update@gmail.com\",\r\n    \"number\":\"0767219213\",\r\n    \"gender\":\"M\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/employees/634f7ef880f6c360ce879011",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"employees",
+						"634f7ef880f6c360ce879011"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Employee",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"first_name\":\"update\",\r\n    \"last_name\":\"update\",\r\n    \"email\":\"update@gmail.com\",\r\n    \"number\":\"0767219213\",\r\n    \"gender\":\"M\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/employees/635010a09f806d8fbacff66a",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"employees",
+						"635010a09f806d8fbacff66a"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

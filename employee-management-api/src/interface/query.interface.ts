@@ -3,5 +3,5 @@ export interface getQuery {
   page: number;
   limit: number;
   sort_by: string;
-  sort_dir: 'ASC' | 'DESC';
+  sort_dir: 'asc' | 'desc';
 }

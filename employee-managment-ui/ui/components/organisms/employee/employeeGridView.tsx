@@ -1,13 +1,13 @@
 import Link from "next/link";
 import React, { useEffect } from "react";
 import { Button, Card } from "react-bootstrap";
-import { GenderEnum } from "../../../enums/genderEnum";
-import { EmployeeInterface } from "../../../interfaces/employeeInterface";
+import { GenderEnum } from "../../../../enums/genderEnum";
+import { EmployeeInterface } from "../../../../interfaces/employeeInterface";
 import { FiEdit2 } from "react-icons/fi";
 import { FaTrashAlt } from "react-icons/fa";
 import Image from "next/image";
 import { Radio } from "react-loader-spinner";
-import NoData from './../noData';
+import NoData from '../../atoms/no-data/noData';
 
 type Props = {
   employees?: EmployeeInterface[];
@@ -42,7 +42,7 @@ const EmployeeGridView: React.FC<Props> = ({
       }
       { !isLoading&& employees?.map((employee: EmployeeInterface) => {
         return (
-          <div className="col-md-3 p-1" key={employee.id}>
+          <div className="col-md-3 p-1" key={employee._id}>
             <Card style={{ width: "18rem" }}>
               <div className="card-img-top">
                 <Image
@@ -62,14 +62,14 @@ const EmployeeGridView: React.FC<Props> = ({
 
                   <div>{GenderEnum[employee.gender]}</div>
                 </Card.Text>
-                <Link href={`/employee/${employee.id}/edit`}>
+                <Link href={`/employee/${employee._id}/edit`}>
                   <Button variant="warning" size="sm">
                     <FiEdit2 />
                   </Button>
                 </Link>{" "}
                 <Button
                   variant="danger"
-                  onClick={() => onDelete(employee.id)}
+                  onClick={() => onDelete(employee._id)}
                   size="sm"
                 >
                   <FaTrashAlt />

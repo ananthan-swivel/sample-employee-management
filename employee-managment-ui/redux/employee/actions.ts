@@ -57,7 +57,7 @@ export const createEmployees = createAsyncThunk('employees/create', async ({ dat
 //    ==========================================================================================
 
 // Delete   ==========================================================================================
-export const deleteEmployees = createAsyncThunk('employees/delete', async ({ id }: { id: number | number[]}, { rejectWithValue }) => {
+export const deleteEmployees = createAsyncThunk('employees/delete', async ({ id }: { id: string | string[]}, { rejectWithValue }) => {
   try {
     const response = await deleteMethod(`employees/${id}`);
     if (response.code == 200) {

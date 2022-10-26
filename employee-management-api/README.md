@@ -27,10 +27,15 @@
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
 ## Installation
-## Copy .env.example to .env and change the DB Connection details.
+## * Create an database and collection MongoDB  
+
+## * Import the  employee.json in the MongoDB  
+## * Copy .env.example to .env and change the DB Connection details.
+## * If you have already project Please update the .env file. and update the nodule modules 
 
 
-## Execute employee.sql in the database 
+## * Postman collection also added as EMS.postman_collection.json
+
 
 ```bash
 $ yarn

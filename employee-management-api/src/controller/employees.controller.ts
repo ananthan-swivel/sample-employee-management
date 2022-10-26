@@ -12,8 +12,8 @@ import {
   DefaultValuePipe,
   ParseIntPipe,
 } from '@nestjs/common';
-import { EmployeesService } from './employees.service';
-import { EmployeeEntity } from './employee.entity';
+import { EmployeesService } from '../services/employees.service';
+// import { EmployeeEntity } from '../entities/employee.entity';
 import { EmployeeCreateDto } from '../dto/employee-create.dto';
 import { Response } from 'express';
 import { Pagination } from 'nestjs-typeorm-paginate';
@@ -55,6 +55,15 @@ export class EmployeesController {
   getOne(@Param() params, @Res() res: Response) {
     try {
       this.service.getEmployee(params.id).then((response) => {
+        console.log('sgfdg', response);
+        if (!response) {
+          return res.status(HttpStatus.NOT_FOUND).json({
+            is_success: false,
+            msg: 'Employee not found for given id.',
+            data: {},
+            err: {},
+          });
+        }
         return res.status(HttpStatus.OK).json({
           is_success: true,
           msg: 'Employee get one successfully.',

@@ -1,9 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { EmployeeCreateDto } from 'src/dto';
-import { EmployeeEntity } from './employee.entity';
-import { EmployeesService } from './employees.service';
-import { getRepositoryToken } from '@nestjs/typeorm';
-import { getRepository, Repository } from 'typeorm';
+import { EmployeesService } from '../../services/employees.service';
+import { getModelToken } from '@nestjs/mongoose';
 
 describe('EmployeesService', () => {
   let service: EmployeesService;
@@ -20,7 +18,7 @@ describe('EmployeesService', () => {
       providers: [
         EmployeesService,
         {
-          provide: getRepositoryToken(EmployeeEntity),
+          provide: getModelToken('Employee'),
           useValue: mockEmployeesRepository,
         },
       ],

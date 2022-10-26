@@ -8,7 +8,7 @@ import {
   MinLength,
   Validate,
 } from 'class-validator';
-import { EmployeeExistsValidation } from '../employees/validation.rule';
+import { EmployeeExistsValidation } from '../rules/validation.rule';
 import { GenderEnum } from '../enums';
 
 export class EmployeeUpdateDto {

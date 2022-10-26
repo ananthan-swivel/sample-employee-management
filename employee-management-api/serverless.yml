@@ -1,0 +1,39 @@
+service:
+    name: employee-nestjs-dynamodb
+
+plugins:
+    - serverless-plugin-typescript
+    - serverless-plugin-optimize
+    - serverless-offline
+
+provider:
+    name: aws
+    tracing:
+        apiGateway: true
+    runtime: nodejs12.x
+    memorySize: 256
+    stage: ${opt:stage, 'dev'}
+    region: us-east-1
+    environment:
+        EMPLOYEES_TABLE_NAME: ${self:custom.EmployeesTable.name}
+    iamRoleStatements:
+        - ${file(iam/EmployeesTableIAM.yml):EmployeesTableIAM}
+
+package:
+    individually: true
+
+resources:
+    Resources:
+        EmployeesTable: ${file(resources/Employeestable.yml):EmployeesTable}
+
+functions:
+    main:
+        handler: src/main.handler
+        events:
+            - http:
+                  method: any
+                  path: /{proxy+}
+custom:
+    EmployeesTable:
+        name: !Ref EmployeesTable
+        arn: !GetAtt EmployeesTable.Arn

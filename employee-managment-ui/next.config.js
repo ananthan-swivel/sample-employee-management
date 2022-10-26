@@ -7,6 +7,7 @@ const nextConfig = {
   },
   env: {
     BASE_URL: process.env.BASE_URL,
+    PROJECT_NAME: process.env.PROJECT_NAME,
   },
 }
 
