@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Head from 'next/head'
 
 type Props = {
@@ -9,9 +9,6 @@ const  Title: React.FC<Props> = ({
     title,
     iconComp,
     }) => {
-    useEffect(() => {
-        console.log("process.env.PROJECT_NAME => ",process.env.PROJECT_NAME )
-    }, [title])
     
   return (
     <>

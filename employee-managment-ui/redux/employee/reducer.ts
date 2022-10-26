@@ -118,7 +118,6 @@ export const employeeReducer = createReducer(
       .addCase(deleteEmployees.fulfilled, (state, {payload}) => {
         state.status = ResponseStatus.LOADED;
         var data = payload as ApiResponseInterface;
-        console.log("🚀 ~ file: reducer.ts ~ line 130 ~ .addCase ~ payload", payload)
         state.key = "delete";
         state.msg = data.msg;
       })
