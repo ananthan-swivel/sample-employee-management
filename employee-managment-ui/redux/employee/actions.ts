@@ -38,7 +38,6 @@ export const getOneEmployees = createAsyncThunk('employees/get-one', async ({ id
 
 // Create   ==========================================================================================
 export const createEmployees = createAsyncThunk('employees/create', async ({ data }: { data: any}, { rejectWithValue }) => {
-  console.log("🚀 ~ file: actions.ts ~ line 41 ~ createEmployees ~ data", data)
   try {
     const response = await post(`employees`, data);
 
@@ -64,7 +63,6 @@ export const deleteEmployees = createAsyncThunk('employees/delete', async ({ id 
       response.data = id;
       return response;
     } else {
-      console.log(response);
 
       return rejectWithValue(response)
     }
@@ -78,7 +76,6 @@ export const deleteEmployees = createAsyncThunk('employees/delete', async ({ id 
 // Update Account Products
 export const updateEmployees = createAsyncThunk('employees/updated', async ({ id, data}: { id: string | string[], data: EmployeeInterface }, { rejectWithValue }) => {
   try {
-    console.log("🚀 ~ file: actions.ts ~ line 82 ~ updateEmployees ~ data", data)
     const response = await put(`employees/${id}`, data);
     if (response.code == 200) {
       return response;

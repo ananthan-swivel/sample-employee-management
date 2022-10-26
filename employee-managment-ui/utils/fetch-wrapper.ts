@@ -13,8 +13,6 @@ export async function get(url: string) {
         }
         return data;
     }).catch(function (error) {
-        console.log('error.response.status');
-        console.log(error);
         if (error.response !== undefined) {
             const data: ApiResponseInterface = {
                 msg: error.response.data.msg,

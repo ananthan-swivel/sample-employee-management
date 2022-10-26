@@ -55,7 +55,6 @@ export class EmployeesController {
   getOne(@Param() params, @Res() res: Response) {
     try {
       this.service.getEmployee(params.id).then((response) => {
-        console.log('sgfdg', response);
         if (!response) {
           return res.status(HttpStatus.NOT_FOUND).json({
             is_success: false,

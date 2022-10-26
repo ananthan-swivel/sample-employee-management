@@ -38,7 +38,6 @@ const AddEmployee = () => {
       ...data,
       [e.target.name]: e.target.value,
     });
-    console.log('e => ' ,e)
   };
 
   useEffect(() => {

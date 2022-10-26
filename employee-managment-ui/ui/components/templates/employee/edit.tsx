@@ -46,12 +46,7 @@ const EditEmployee: React.FC<Props> = ({
   }, [id]);
   useEffect(() => {
     setEditData(data[0]);
-    console.log("data[0] => ",data[0])
   }, [data]);
-
-  useEffect(() => {
-   console.log('editData => ' ,editData);
-  }, [editData])
   
 
   const onChangeForm = (e: any) => {
