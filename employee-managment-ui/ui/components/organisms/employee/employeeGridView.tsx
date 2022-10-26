@@ -42,7 +42,7 @@ const EmployeeGridView: React.FC<Props> = ({
       }
       { !isLoading&& employees?.map((employee: EmployeeInterface) => {
         return (
-          <div className="col-md-3 p-1" key={employee._id}>
+          <div className="col-xl-3 col-lg-4 col-md-6 col-sm-1 p-1" key={employee._id}>
             <Card style={{ width: "18rem" }}>
               <div className="card-img-top">
                 <Image

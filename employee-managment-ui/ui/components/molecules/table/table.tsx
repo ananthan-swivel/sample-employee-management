@@ -1,10 +1,6 @@
 import React from 'react'
-import { Button } from 'react-bootstrap';
-import { FaSortAlphaUp, FaSortAlphaUpAlt, FaSortNumericUp, FaSortNumericUpAlt, FaTrashAlt } from 'react-icons/fa';
-import { FiEdit2 } from 'react-icons/fi';
+import { FaSortAlphaUp, FaSortAlphaUpAlt } from 'react-icons/fa';
 import { Radio } from 'react-loader-spinner';
-import Link from "next/link";
-import Image from "next/image";
 import { TableColumnInterface } from 'interfaces/tableColumnInterface';
 import NoData from 'ui/components/atoms/no-data/noData';
 
@@ -35,7 +31,7 @@ const Table: React.FC<Props> = ({
                     {column?.map((col) => {
                         if (col?.isSortable) {
                             return <th
-                                key={col.key}
+                                key={`th-${col.key}`}
                                 onClick={() => onSort(
                                     col.key,
                                     sortBy === col.key && sortDir === "asc" ? "desc" : "asc"

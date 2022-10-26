@@ -7,7 +7,7 @@ import {
   FaTrashAlt,
 } from "react-icons/fa";
 import { EmployeeInterface } from "../../../../interfaces/employeeInterface";
-import Table from "ui/components/atoms/table/table";
+import Table from "ui/components/molecules/table/table";
 import { GenderEnum } from "enums/genderEnum";
 
 type Props = {
@@ -79,13 +79,11 @@ const EmployeeListView: React.FC<Props> = ({
   
 
   return (
-    <>
-    <Table onSort={(key: any, value: any) =>onSort(key,value) } 
+    <Table key='table-employee' onSort={(key: any, value: any) =>onSort(key,value) } 
         data={employees ?? []} column={column} isLoading={isLoading} 
         sortBy={sortBy} 
         sortDir={sortDir} 
         />
-    </>
   );
 };
 

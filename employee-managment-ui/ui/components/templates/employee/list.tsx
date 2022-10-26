@@ -115,10 +115,11 @@ function ListEmployee() {
     <div className="py-5">
       <Title title='Employees' iconComp={<FcBusinessman size={50} />}/>
       <div className="main-container ">
-        <Toolbar title='Add Employee' forwardLink='/employee/add' viewStyle={isListView} viewStyleChange={() => setIsListView(!isListView)} onSearch={(value) => setSearch(value)} />
+        <Toolbar title='Employee' isList={true} forwardLink='/employee/add' viewStyle={isListView} viewStyleChange={() => setIsListView(!isListView)} onSearch={(value) => setSearch(value)} />
         <div className="py-4">
           {isListView ? (
             <EmployeeListView
+              key="Employee-list-view"
               employees={data ?? []}
               onDelete={(id: string) => onDelete(id)}
               onSort={(sort_by, sort_dir) => onSort(sort_by, sort_dir)}

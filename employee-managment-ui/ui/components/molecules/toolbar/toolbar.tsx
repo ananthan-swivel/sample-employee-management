@@ -40,7 +40,7 @@ const Toolbar: React.FC<Props> = ({
             </Link>
           </div>
           {
-            viewStyle && viewStyleChange &&
+            viewStyleChange &&
             <>
               <div className="">
                 <Button variant="primary" onClick={() => viewStyleChange()}>
