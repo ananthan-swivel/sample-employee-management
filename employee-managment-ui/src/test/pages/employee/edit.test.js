@@ -2,9 +2,9 @@ import React from "react";
 // Using render and screen from test-utils.js instead of
 // @testing-library/react
 import { render as rtlRender, screen ,waitFor } from '@testing-library/react';
-import AddEmployeePage from "../../../src/pages/employee/add";
+import EditEmployeePage from "../../../pages/employee/[id]/edit";
 import { Provider } from 'react-redux';
-import { store } from "../../../src/services/redux/store";
+import { store } from "../../../services/redux/store";
 import Router from 'next/router';
 import { useRouter } from "next/router"
 import { act } from 'react-dom/test-utils';
@@ -12,12 +12,15 @@ import { act } from 'react-dom/test-utils';
 
 const render = component => rtlRender(
   <Provider store={store} >
-    <AddEmployeePage />
+    <EditEmployeePage />
   </Provider>
 )
-jest.mock("next/router", () => ({
-  useRouter: jest.fn(),
-}))
+
+jest.mock('next/router', () => ({
+  useRouter: () => ({
+    query: { id: '1' },
+  }),
+}));
 
 let container;
 
@@ -31,14 +34,14 @@ afterEach(() => {
   container = null;
 });
 
-describe("Employee add page", () => {
+describe("Employee edit page", () => {
   beforeEach(async () => {
     await act(() => {
-    render(<AddEmployeePage />);
+    render(<EditEmployeePage />);
     });
   })
   it("should render the heading", async () => {
-    const headingTextId = "Add Employees";
+    const headingTextId = "Edit Employees";
 
     await act( () => {
       const heading = screen.getByText(headingTextId);
@@ -99,17 +102,10 @@ describe("Employee add page", () => {
     })
   });
 
-  it("gender input box defined", async () => {
-    await act( () => {
-      const genderInputBox = screen.getByRole('select' , {name:'gender'});
-      expect(genderInputBox).toBeVisible();
-    })
-  });
-
   it("submit button enabled and defined", () => {
-    const buttonText = 'Submit';
-    const button = screen.getByText(buttonText).closest('button');
-    expect(button).not.toBeDisabled();
+      const buttonText = 'Submit';
+      const button = screen.getByText(buttonText).closest('button');
+      expect(button).toBeDisabled();
   });
 
 });
