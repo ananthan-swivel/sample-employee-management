@@ -38,6 +38,7 @@ export class EmployeeCreateDto {
 
   @ApiProperty()
   @IsEmail()
+  @IsNotEmpty()
   @EmployeeExistsValidation(false)
   email: string;
 
@@ -50,6 +51,7 @@ export class EmployeeCreateDto {
       .join('|')}$`,
     'i',
   )
+  @IsNotEmpty()
   gender: string;
 
   @ApiProperty({
@@ -57,7 +59,8 @@ export class EmployeeCreateDto {
     maximum: 13,
     description: 'LK phone number.',
   })
-  @EmployeeExistsValidation(false)
+  @IsNotEmpty()
   @Matches(/^(?:7|0|(?:\+94))[0-9]{9,10}$/i, { message: 'Invalid number' })
+  @EmployeeExistsValidation(false)
   number: string;
 }

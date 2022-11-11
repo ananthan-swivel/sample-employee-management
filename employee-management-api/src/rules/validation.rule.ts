@@ -6,12 +6,12 @@ import {
   ValidationArguments,
 } from 'class-validator';
 import { Injectable } from '@nestjs/common';
-import { EmployeesService } from '../services/employees.service';
+import { EmployeesFindByService } from '../services/employees/find-by-employees.service';
 
 @ValidatorConstraint({ name: 'EmployeeExistsValidation', async: true })
 @Injectable()
 export class EmployeeExistsRule implements ValidatorConstraintInterface {
-  constructor(private employeesService: EmployeesService) {}
+  constructor(private employeesService: EmployeesFindByService) {}
 
   async validate(value: string, args: ValidationArguments) {
     try {

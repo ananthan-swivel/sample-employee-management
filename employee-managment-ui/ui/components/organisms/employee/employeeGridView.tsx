@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React, { useEffect } from "react";
 import { Button, Card } from "react-bootstrap";
-import { GenderEnum } from "../../../../enums/genderEnum";
+import { GenderEnum } from "../../../../src/services/enums/genderEnum";
 import { EmployeeInterface } from "../../../../interfaces/employeeInterface";
 import { FiEdit2 } from "react-icons/fi";
 import { FaTrashAlt } from "react-icons/fa";
