@@ -16,7 +16,7 @@ export class EmployeesGetAllService {
     const sort_by = _options?.sort_by ?? '_id';
     const sort_dir = _options?.sort_dir ?? 'asc';
     let options = {} as any;
-
+    // Filter Start Here
     if (_options?.search && _options?.search !== '') {
       options = {
         ...options,
@@ -28,13 +28,16 @@ export class EmployeesGetAllService {
         ],
       };
     }
+    // Filter End Here
     const query = await this.employeeModel
       .find(options)
       .sort({ [sort_by]: sort_dir })
       .skip((page - 1) * limit)
       .limit(limit);
+    // For Pagination Start Here
     const totalItems = await (await this.employeeModel.find(options)).length;
     const totalPages = Math.ceil(totalItems / limit);
+    // For Pagination End Here
     return {
       items: query,
       meta: {

@@ -1,6 +1,8 @@
-import React, { useState } from 'react'
-import PropTypes from 'prop-types'
-import { constants } from 'buffer';
+import React, { useState ,Fragment } from 'react'
+
+// Select Box based on the bootstrap 
+
+
 type Props = {
     value?: string | string[];
     onChange: Function;
@@ -9,7 +11,7 @@ type Props = {
     label?: string;
     options?: any;
     required?: boolean;
-    error?: {};
+    error?: [];
   };
 const Select: React.FC<Props> = ({
     value,
@@ -29,17 +31,18 @@ const Select: React.FC<Props> = ({
         onChange(value)
     }
   return (
-    <>
-        {label && <label className="form-label">{label}</label>} 
+    <div className="px-3">
+        {label && <label className="form-label ">{label}</label>} 
         <select
             className="form-select"
             onChange={(e) => onChangeEvent(e)}
             name={name}
             role='select'
+            value={value}
             aria-label={name ?? ""}
             required
             >
-            {options.map((option) => {
+            {options.map((option:any) => {
                 return (
                 <option key={option.value} value={option.value}>
                     {option.lable}
@@ -49,12 +52,12 @@ const Select: React.FC<Props> = ({
         </select>
         {error && (
             <div className="invalid-feedback">
-                {error?.map((msg) => (
-                <div>{msg}</div>
+                {error?.map((msg:any,index) => (
+                    <div key={index}>{msg}</div>
                 ))}
             </div>
         )}
-    </>
+    </div>
   )
 }
 

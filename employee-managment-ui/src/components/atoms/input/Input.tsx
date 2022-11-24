@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
+// Input Box based on the bootstrap 
 
 type Props = {
     value?: string | string[];
@@ -11,7 +12,7 @@ type Props = {
     min?: string;
     max?: string;
     required?: boolean;
-    error?: {};
+    error?: [];
   };
   const Input: React.FC<Props> = ({
     value,
@@ -39,13 +40,13 @@ type Props = {
     
 
   return (
-    <>
-        {label && <label className="form-label">{label}</label>}
+    <div className="mx-2">
+        {label && <label className="form-label ">{label}</label>}
         <div className="input-group has-validation">
         <input
             type={type ?? ""}
-            className={`form-control  ${
-                error ? "invalid" : ""
+            className={`form-control mt-1 ${
+                error && error.length>0 ? "invalid" : ""
             }`}
             value={inputValue}
             onChange={(e) => onChangeEvent(e)}
@@ -66,7 +67,7 @@ type Props = {
             </div>
         )}
         </div>
-    </>
+    </div>
   )
 }
 

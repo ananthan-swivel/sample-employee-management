@@ -16,5 +16,38 @@ yarn dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 
-[Employee Index Page](http://localhost:3000/employee/list) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/employee/list). This endpoint can be edited in `pages/employee/list.ts`.
+[Employee Index Page](http://localhost:3000/employee/list) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/employee/list). This endpoint can be edited in `pages/employee/list.ts`
+
+## * For testing
+
+```bash
+# unit tests
+$ yarn test
+
+# e2e tests
+$ yarn test:e2e
+
+# test coverage
+$ yarn test:cov
+```
+
+
+## * For StoryBook
+
+```bash
+# Run Storybook
+$ yarn storybook
+
+# Build Storybook
+$ yarn build-storybook
+
+#OR 
+# Run Storybook
+$ npm run storybook
+
+# Build Storybook
+$ npm run build-storybook
+
+```
+
 

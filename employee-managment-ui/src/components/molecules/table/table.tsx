@@ -5,7 +5,8 @@ import NoData from '../../../../src/components/atoms/no-data/noData';
 import { TableColumnInterface } from '../../../../src/services/interfaces/tableColumnInterface';
 
 
-
+// Table View 
+// Coloum is what are coloum to show with TableColumnInterface
 type Props = {
     onSort: Function;
     column: TableColumnInterface[],
@@ -88,7 +89,7 @@ const Table: React.FC<Props> = ({
                     wrapperClass="radio-wrapper" />
             )}
         </div>
-        {data?.length === 0 && <NoData />}
+        {!isLoading && data?.length === 0 && <NoData />}
     </React.Fragment>
 )
 

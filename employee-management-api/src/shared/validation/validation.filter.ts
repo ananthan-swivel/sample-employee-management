@@ -12,6 +12,7 @@ export class ValidationException extends BadRequestException {
 }
 
 @Catch(ValidationException)
+// Validation Error common senting
 export class ValidationFilter implements ExceptionFilter {
   catch(exception: ValidationException, host: ArgumentsHost): any {
     const ctx = host.switchToHttp();

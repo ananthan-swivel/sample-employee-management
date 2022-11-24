@@ -24,7 +24,8 @@ export class EmployeeExistsRule implements ValidatorConstraintInterface {
     } catch (e) {
       return false;
     }
-
+    // Employee if exist true.
+    // Else false.
     return true;
   }
 

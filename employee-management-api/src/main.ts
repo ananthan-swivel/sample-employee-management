@@ -33,6 +33,8 @@ async function bootstrap() {
     .setDescription('Employee Management System API description')
     .setVersion('0.1')
     .build();
+
+  // Swagger documentation only for dev environment
   const document = SwaggerModule.createDocument(app, config);
   if (process.env.ENVIRONMENT === 'dev') {
     SwaggerModule.setup('api', app, document);
@@ -44,7 +46,7 @@ async function bootstrap() {
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
     credentials: true,
   });
-  
+
   await app.listen(process.env.PORT || 5000);
 }
 bootstrap();

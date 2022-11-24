@@ -25,7 +25,7 @@ const EmployeeGridView: React.FC<Props> = ({
     return <> {GenderEnum[gender]}</>;
   };
   return (
-    <div className="row">
+    <div className="row mx-2">
       {isLoading && (
         <Radio
           visible={true}
@@ -38,7 +38,7 @@ const EmployeeGridView: React.FC<Props> = ({
       )}
 
       {
-        employees?.length ===0 && <NoData />
+        !isLoading && employees?.length ===0 && <NoData />
       }
       { !isLoading&& employees?.map((employee: EmployeeInterface) => {
         return (
@@ -57,10 +57,10 @@ const EmployeeGridView: React.FC<Props> = ({
                   {employee.first_name} {employee.last_name}
                 </Card.Title>
                 <Card.Text>
-                  <div>{employee.email}</div>
-                  <div>{employee.number}</div>
+                  <span className="d-block">{employee.email}</span>
+                  <span className="d-block">{employee.number}</span>
 
-                  <div>{GenderEnum[employee.gender]}</div>
+                  <span className="d-block">{GenderEnum[employee.gender]}</span>
                 </Card.Text>
                 <Link href={`/employee/${employee._id}/edit`}>
                   <Button variant="warning" size="sm">

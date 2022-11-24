@@ -4,6 +4,8 @@ import Input from '../../../../src/components/atoms/input/Input'
 import Select from '../../../../src/components/atoms/input/select'
 import { enumToSelectObject } from '../../../../src/services/utils/enum-to-select-object';
 import { EmployeeInterface } from '../../../../src/services/interfaces/employeeInterface';
+
+// Employee Add and Edit Form base.
 type Props = {
     data?: {} | EmployeeInterface;
     onChangeForm: Function;

@@ -75,11 +75,35 @@ npm run dev
 # or
 yarn dev
 ```
-
-## Test
+## * For testing
 
 ```bash
 # unit tests
 $ yarn test
 
+# e2e tests
+$ yarn test:e2e
+
+# test coverage
+$ yarn test:cov
+```
+
+
+## * For StoryBook
+
+```bash
+# Run Storybook
+$ yarn storybook
+
+# Build Storybook
+$ yarn build-storybook
+
+#OR 
+# Run Storybook
+$ npm run storybook
+
+# Build Storybook
+$ npm run build-storybook
+
+```
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.

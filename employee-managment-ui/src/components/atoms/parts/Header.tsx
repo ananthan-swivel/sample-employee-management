@@ -1,9 +1,13 @@
 import React from "react";
-
-function Header() {
+type Props = {
+  title?: string;
+};
+const Header: React.FC<Props> = ({
+  title
+  }) => {
   return (
     <nav className="navbar navbar-light bg-light px-5">
-      <h3>Employee Management</h3>
+      <h3>{title ?? 'Employee Management'}</h3>
     </nav>
   );
 }
