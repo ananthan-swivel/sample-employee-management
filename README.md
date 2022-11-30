@@ -53,6 +53,10 @@ $ yarn test:e2e
 # test coverage
 $ yarn test:cov
 ```
+
+Open [http://13.212.96.20:5000/api](http://13.212.96.20:5000/api) with your browser to see the result from the Server.
+
+
 *********************************
 ---------------------------------
 
@@ -110,4 +114,11 @@ $ npm run storybook
 $ npm run build-storybook
 
 ```
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result from the local.
+
+Open [http://54.179.26.50:3000/employee/list](http://54.179.26.50:3000/employee/list) with your browser to see the result from the Server.
+
+
+
+------------
+Both BE and FE are hosted in AWS
