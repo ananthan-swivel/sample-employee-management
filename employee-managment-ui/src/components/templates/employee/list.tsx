@@ -116,7 +116,7 @@ function ListEmployee() {
       <Title title='Employees' iconComp={<FcBusinessman size={50} />}/>
       <div className="main-container ">
         <Toolbar title='Employee' isList={true} forwardLink='/employee/add' viewStyle={isListView} viewStyleChange={() => setIsListView(!isListView)} onSearch={(value) => setSearch(value)} />
-        <div className="py-4">
+        <div className="py-4 table-responsive">
           {isListView ? (
             <EmployeeListView
               key="Employee-list-view"
