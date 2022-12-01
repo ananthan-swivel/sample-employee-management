@@ -10,7 +10,7 @@ import { useRouter } from "next/router"
 import { act } from 'react-dom/test-utils';
 
 
-const render = component => rtlRender(
+const render = (component:any) => rtlRender(
   <Provider store={store} >
     <AddEmployeePage />
   </Provider>
@@ -19,7 +19,7 @@ jest.mock("next/router", () => ({
   useRouter: jest.fn(),
 }))
 
-let container;
+let container:any;
 
 beforeEach(() => {
   container = document.createElement('div');

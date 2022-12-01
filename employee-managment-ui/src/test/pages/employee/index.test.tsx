@@ -10,7 +10,7 @@ import { useRouter } from "next/router"
 import { act } from 'react-dom/test-utils';
 
 
-const render = component => rtlRender(
+const render = (component:any) => rtlRender(
   <Provider store={store} >
     <ListEmployeePage />
   </Provider>
@@ -18,7 +18,7 @@ const render = component => rtlRender(
 jest.mock("next/router", () => ({
   useRouter: jest.fn(),
 }))
-let container;
+let container:any;
 
 beforeEach(() => {
   container = document.createElement('div');
@@ -32,7 +32,10 @@ afterEach(() => {
 
 describe("Employee List page", () => {
   beforeEach(async () => {
-    await act( async () => render(<ListEmployeePage />));
+    // await act( () => render(<ListEmployeePage />));
+    await act(() => {
+    render(<ListEmployeePage />);
+    });
   })
   it("should render the heading", () => {
     const headingTextId = "heading-Employees";
@@ -68,7 +71,7 @@ describe("Employee List page", () => {
     });
     const tableTextId = screen.getByTestId('list-table');
     expect(tableTextId).toBeInTheDocument();
-    jest.runOnlyPendingTimers();
+    // jest.runOnlyPendingTimers();
     jest.useRealTimers();
   });
 });

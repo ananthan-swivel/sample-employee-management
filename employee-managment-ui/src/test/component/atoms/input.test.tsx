@@ -5,7 +5,7 @@ import Input from "../../../components/atoms/input/Input";
 
 describe("Input component testing", () => {
   it("Input placeholder testing", async () => {
-    const placeholder = 'testing input placeholder'
+    const placeholder:string = 'testing input placeholder'
     render(<Input data={placeholder} name="testing"/>)
     expect(screen.getByRole("input", { name: "testing" })).toBeInTheDocument(placeholder);
   });
