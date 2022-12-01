@@ -1,4 +1,4 @@
-import { GenderEnum } from "../src/services/enums/genderEnum";
+import { GenderEnum } from "../../services/enums/genderEnum";
 
 export interface EmployeeInterface {
     _id?: string;

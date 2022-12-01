@@ -30,7 +30,7 @@ const Toolbar: React.FC<Props> = ({
     <div className="py-3 mx-n4 d-flex justify-content-end">
         {onSearch && 
             <div className="px-2">
-                  <Input placeholder={`Search ${title}`} type="text" name="search" onChange={(value) => onSearch(value.target.value)}/>
+                  <Input placeholder={`Search ${title}`} type="text" name="search" onChange={(value :any) => onSearch(value.target.value)}/>
             </div>
         }
           <div className="px-2">

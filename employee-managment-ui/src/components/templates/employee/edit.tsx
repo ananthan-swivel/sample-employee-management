@@ -87,7 +87,7 @@ const EditEmployee: React.FC<Props> = ({
           className={`needs-validation ${isSubmitted ? "was-validated" : ""}`}
         >
           <Card.Body>
-            <EmployeeForm data={editData} error={error} onChangeForm={(e) => onChangeForm(e)}/>
+            <EmployeeForm data={editData} error={error} onChangeForm={(e:any) => onChangeForm(e)}/>
            
             <div className="py-2">
               <Button

@@ -12,7 +12,7 @@ type Props = {
     min?: string;
     max?: string;
     required?: boolean;
-    error?: [];
+    error?: any;
   };
   const Input: React.FC<Props> = ({
     value,
@@ -61,7 +61,7 @@ type Props = {
         />
         {error && (
             <div className="invalid-feedback">
-            {error?.map((msg,index) => (
+            {error?.map((msg:any,index:any) => (
                 <div key={index}>{msg}</div>
             ))}
             </div>

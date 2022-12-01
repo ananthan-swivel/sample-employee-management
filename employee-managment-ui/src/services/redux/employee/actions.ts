@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { EmployeeInterface } from '../../../../interfaces/employeeInterface';
+import { EmployeeInterface } from '../../../services/interfaces/employeeInterface';
 import { deleteMethod, get, post, put } from '../../utils/fetch-wrapper';
 
 export const getAllEmployees = createAsyncThunk('employees/get-all', async ({ params }: { params?: string | string[][] | Record<string, string> | URLSearchParams | undefined }, { rejectWithValue }) => {

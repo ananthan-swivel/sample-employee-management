@@ -20,10 +20,6 @@ const EmployeeGridView: React.FC<Props> = ({
   isLoading,
 }) => {
 
-  const gender = (gender: GenderEnum) => {
-    // TODO Gender
-    return <> {GenderEnum[gender]}</>;
-  };
   return (
     <div className="row mx-2">
       {isLoading && (

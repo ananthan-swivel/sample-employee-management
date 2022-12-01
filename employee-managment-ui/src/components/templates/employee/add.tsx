@@ -76,7 +76,7 @@ const AddEmployee = () => {
           className={`needs-validation ${isSubmitted ? "was-validated" : ""}`}
         >
           <Card.Body>
-            <EmployeeForm data={data} error={error} onChangeForm={(e) => onChangeForm(e)}/>
+            <EmployeeForm data={data} error={error} onChangeForm={(e:any) => onChangeForm(e)}/>
             <div className="py-2">
               <Button
                 variant="primary"

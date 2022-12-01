@@ -7,9 +7,9 @@ import { EmployeeInterface } from '../../../../src/services/interfaces/employeeI
 
 // Employee Add and Edit Form base.
 type Props = {
-    data?: {} | EmployeeInterface;
+    data?: EmployeeInterface;
     onChangeForm: Function;
-    error?: {};
+    error?: EmployeeInterface;
   };
 export const EmployeeForm : React.FC<Props> = ({
     data,
@@ -39,7 +39,7 @@ export const EmployeeForm : React.FC<Props> = ({
                 onChange={(e: any) => onChangeForm(e)} required={true} />
         </div>
         <div className="col-md-12">
-            <Select label="Gender" onChange={(e) => onChangeForm(e)} name='gender' options={gender} value={data?.gender} error={error?.gender}/>
+            <Select label="Gender" onChange={(e:any) => onChangeForm(e)} name='gender' options={gender} value={data?.gender} error={error?.gender}/>
         </div>
     </>
   )

@@ -16,7 +16,7 @@ type Props = {
   isLoading: Boolean;
   sortBy: String;
   onSort: Function;
-  sortDir: "asc" | "desc";
+  sortDir: any;
 };
 const EmployeeListView: React.FC<Props> = ({
   employees,

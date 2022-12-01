@@ -11,7 +11,7 @@ type Props = {
     label?: string;
     options?: any;
     required?: boolean;
-    error?: [];
+    error?: any;
   };
 const Select: React.FC<Props> = ({
     value,
@@ -52,7 +52,7 @@ const Select: React.FC<Props> = ({
         </select>
         {error && (
             <div className="invalid-feedback">
-                {error?.map((msg:any,index) => (
+                {error?.map((msg:any,index:any) => (
                     <div key={index}>{msg}</div>
                 ))}
             </div>

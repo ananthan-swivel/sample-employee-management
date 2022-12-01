@@ -71,7 +71,7 @@ function ListEmployee() {
       Store.addNotification({
         title: "Error!",
         message: msg,
-        type: "error",
+        type: "danger",
         insert: "top",
         container: "top-right",
         animationIn: ["animate__animated", "animate__fadeIn"],
@@ -94,7 +94,7 @@ function ListEmployee() {
       title: "Are you sure?",
       text: "Once deleted, you will not be able to recover this imaginary file!",
       icon: "warning",
-      buttons: true,
+      buttons: [true],
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
@@ -115,14 +115,14 @@ function ListEmployee() {
     <div className="py-5">
       <Title title='Employees' iconComp={<FcBusinessman size={50} />}/>
       <div className="main-container ">
-        <Toolbar title='Employee' isList={true} forwardLink='/employee/add' viewStyle={isListView} viewStyleChange={() => setIsListView(!isListView)} onSearch={(value) => setSearch(value)} />
+        <Toolbar title='Employee' isList={true} forwardLink='/employee/add' viewStyle={isListView} viewStyleChange={() => setIsListView(!isListView)} onSearch={(value:any) => setSearch(value)} />
         <div className="py-4 table-responsive">
           {isListView ? (
             <EmployeeListView
               key="Employee-list-view"
               employees={data ?? []}
               onDelete={(id: string) => onDelete(id)}
-              onSort={(sort_by, sort_dir) => onSort(sort_by, sort_dir)}
+              onSort={(sort_by:any, sort_dir:any) => onSort(sort_by, sort_dir)}
               sortBy={sort["sort_by"]}
               sortDir={sort["sort_dir"]}
               isLoading={status=== ResponseStatus.LOADING && key==='view-all'}

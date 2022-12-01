@@ -1,15 +1,15 @@
 import { createReducer } from "@reduxjs/toolkit";
+import { ApiResponseInterface } from "../../../services/interfaces/apiResponseInterface";
+import { EmployeeInterface } from "../../../services/interfaces/employeeInterface";
+import { ErrorResponseInterface } from "../../../services/interfaces/errorResponseInterface";
+import { PaginationInterface } from "../../../services/interfaces/paginationInterface";
 import { ResponseStatus } from "../../enums/responseStatus";
-import { EmployeeInterface } from "../../../../interfaces/employeeInterface";
-import { ErrorResponseInterface } from "../../../../interfaces/errorResponseInterface";
 
 import { clearEmployees, createEmployees, deleteEmployees, getAllEmployees, getOneEmployees, updateEmployees } from "./actions";
-import { PaginationInterface } from '../../../../interfaces/paginationInterface';
-import { ApiResponseInterface } from "../../../../interfaces/apiResponseInterface";
 
 interface ReducerInitialStateInterface {
   data: EmployeeInterface[];
-  error: ErrorResponseInterface;
+  error: EmployeeInterface;
   status: ResponseStatus;
   pagination: PaginationInterface;
   key?: string;
@@ -18,7 +18,7 @@ interface ReducerInitialStateInterface {
 
 const initialState: ReducerInitialStateInterface = {
   data: [],
-  error: {} as ErrorResponseInterface,
+  error: {} as EmployeeInterface,
   pagination: {} as PaginationInterface,
   status: ResponseStatus.INITIAL,
   key: undefined,
@@ -138,7 +138,7 @@ export const employeeReducer = createReducer(
       .addCase(clearEmployees.fulfilled, (state, {}) => {
         state.status = ResponseStatus.LOADED;
         state.key = "";
-        state.error = {} as ErrorResponseInterface;
+        state.error = {} as EmployeeInterface;
         state.data = [];
       });
 
